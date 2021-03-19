@@ -41,6 +41,8 @@ go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
 go get github.com/smartwalle/protoc-gen-sm
 ```
 
+或者将本项目下载到本地之后，进入项目所在目录执行 **go install** 命令。
+
 ## 使用
 
 ```shell

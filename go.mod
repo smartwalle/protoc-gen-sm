@@ -3,5 +3,6 @@ module github.com/smartwalle/protoc-gen-sm
 go 1.16
 
 require (
-	github.com/golang/protobuf v1.3.5 // indirect
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0 // indirect
+	google.golang.org/protobuf v1.26.0 // indirect
 )

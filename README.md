@@ -36,6 +36,8 @@ func NewMessageUserInfo() *Message_UserInfo {
 ## 安装
 
 ```shell
+go get google.golang.org/protobuf/cmd/protoc-gen-go
+go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
 go get github.com/smartwalle/protoc-gen-sm
 ```
 
@@ -44,3 +46,7 @@ go get github.com/smartwalle/protoc-gen-sm
 ```shell
 protoc  --go_out=. --sm_out=. --go-grpc_out=. ./*.proto
 ```
+
+## 参考
+
+[https://grpc.io/docs/languages/go/quickstart/#regenerate-grpc-code](https://grpc.io/docs/languages/go/quickstart/#regenerate-grpc-code)

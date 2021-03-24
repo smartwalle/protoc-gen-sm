@@ -37,8 +37,13 @@ func generateOneOf(gen *protogen.Plugin, file *protogen.File) *protogen.Generate
 				var methodName = fmt.Sprintf("New%s%s() ", message.GoIdent.GoName, field.Message.GoIdent.GoName)
 				g.P("func ", methodName, "*", field.GoIdent.GoName, "{")
 				g.P("var m = &", field.GoIdent.GoName, "{}")
-				g.P("m.", field.GoName, "= &", field.Message.GoIdent.GoName, "{}")
+				g.P("m.", field.GoName, "= &", g.QualifiedGoIdent(field.Message.GoIdent), "{}")
 				g.P("return m")
+				g.P("}")
+				g.P()
+
+				g.P("func (this *", field.GoIdent.GoName, ") String() string {")
+				g.P("return \"", field.Message.GoIdent.GoName, "\"")
 				g.P("}")
 				g.P()
 			}

@@ -21,6 +21,8 @@ package main
 import (
 	"fmt"
 	"google.golang.org/protobuf/compiler/protogen"
+	"path/filepath"
+	"strings"
 )
 
 // generateOneOf generates a _grpc.pb.go file containing gRPC service definitions.
@@ -42,8 +44,18 @@ func generateOneOf(gen *protogen.Plugin, file *protogen.File) *protogen.Generate
 				g.P("}")
 				g.P()
 
-				g.P("func (this *", field.GoIdent.GoName, ") String() string {")
+				g.P("func (*", field.GoIdent.GoName, ") Number() int32 {")
+				g.P("return ", field.Desc.Number())
+				g.P("}")
+				g.P()
+
+				g.P("func (*", field.GoIdent.GoName, ") String() string {")
 				g.P("return \"", field.Message.GoIdent.GoName, "\"")
+				g.P("}")
+				g.P()
+
+				g.P("func (*", field.GoIdent.GoName, ") Filename() string {")
+				g.P("return \"", strings.Split(filepath.Base(field.Message.Location.SourceFile), ".")[0], "\"")
 				g.P("}")
 				g.P()
 			}

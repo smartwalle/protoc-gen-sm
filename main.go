@@ -61,7 +61,7 @@ func main() {
 			if !f.Generate {
 				continue
 			}
-			generateOneOf(gen, f)
+			generateOneof(gen, f)
 		}
 		return nil
 	})

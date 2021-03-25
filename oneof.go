@@ -36,9 +36,7 @@ func generateOneof(gen *protogen.Plugin, file *protogen.File) *protogen.Generate
 
 	for _, message := range file.Messages {
 		for _, oneof := range message.Oneofs {
-
 			ifName := message.GoIdent.GoName + oneof.GoName
-			g.P("// 需要手动删除 ", file.GeneratedFilenamePrefix+".pb.go 中的 ", ifName, " 接口声明")
 			g.P("type ", ifName, " interface {")
 			g.P(oneofInterfaceName(oneof))
 			g.P()

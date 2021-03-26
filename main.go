@@ -62,6 +62,7 @@ func main() {
 				continue
 			}
 			generateOneof(gen, f)
+			generateNew(gen, f)
 		}
 		return nil
 	})

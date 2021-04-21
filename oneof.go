@@ -54,7 +54,7 @@ func generateOneof(gen *protogen.Plugin, file *protogen.File) *protogen.Generate
 			g.P()
 
 			for _, field := range oneof.Fields {
-				var methodName = fmt.Sprintf("New%s%s() ", message.GoIdent.GoName, field.Message.GoIdent.GoName)
+				var methodName = fmt.Sprintf("New%s%s() ", message.GoIdent.GoName, field.GoName)
 				g.P("func ", methodName, "*", field.GoIdent, "{")
 				g.P("var m = &", field.GoIdent, "{}")
 				g.P("m.", field.GoName, "= &", g.QualifiedGoIdent(field.Message.GoIdent), "{}")

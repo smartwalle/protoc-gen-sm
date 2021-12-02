@@ -1,6 +1,6 @@
 ## 功能
 
-### 用于生成 oneof 类型字段的 New 函数。
+### 为 oneof 类型字段添加 New 函数。
 
 ```proto
 message Message {
@@ -33,12 +33,26 @@ func NewMessageUserInfo() *Message_UserInfo {
 }
 ```
 
+### 为 oneof 类型字段添加相关方法
+
+#### Number() int32
+
+获取该字段的编号
+
+#### String() string
+
+获取该字段的名称
+
+#### Filename() string
+
+获取该字段类型声明所在的 proto 文件名
+
 ## 安装
 
 ```shell
-go get google.golang.org/protobuf/cmd/protoc-gen-go
-go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
-go get github.com/smartwalle/protoc-gen-sm
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+go install github.com/smartwalle/protoc-gen-sm@latest
 ```
 
 或者将本项目下载到本地之后，进入项目所在目录执行 **go install** 命令。

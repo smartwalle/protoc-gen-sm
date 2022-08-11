@@ -25,7 +25,7 @@ import (
 	"strings"
 )
 
-// generateOneof generates a _new.pb.go file containing gRPC service definitions.
+// generateOneof generates a _oneof.pb.go file containing gRPC service definitions.
 func generateOneof(gen *protogen.Plugin, file *protogen.File) *protogen.GeneratedFile {
 	filename := file.GeneratedFilenamePrefix + "_oneof.pb.go"
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
